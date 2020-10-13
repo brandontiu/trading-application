@@ -124,7 +124,7 @@ If any of the below thresholds are reached, the system flags the TradingUser to 
 * The GUI was made assuming that it would run on a mac computer (everyone in the group has macs)
 * When a certain action (like completing a transaction) is performed, the effects of that action (like transaction history updating) will appear AFTER the user logs out and logs back in
 
-UML
+## UML
 
 * The UML diagram is colour coded based on clean architecture
   * Pink: Entity Classes
