@@ -1,0 +1,12 @@
+﻿A list of design patterns that you used and why/how. Please include the names of all classes involved in the implementation of the pattern.
+
+
+1. Factory
+1. TransactionFactory class. This class takes in 3 parameters then depending on the characteristics of the last parameter (number of meetings) creates the appropriate Transaction subclass. This is great because this got rid of the 3 almost identical overloaded methods in CurrentTransactionManager that created an instance of a transaction subclass.
+2. Builder
+1. TransactionBuilder class. A transaction is a very complex object to make in our program. It requires first making the meetings (which require 3 pieces of info for each meeting) then you need to deal with the items in a transaction (if it’s one way or two way). Worst of all there are 3 transaction subclasses so we had to do all of this 3 times(the code was slightly different.). To solve this we implemented a TransactionBuilder class. This allowed us to just store an instance of the builder in the GUI and call methods in the builder to make transactions step by step. Using this design pattern allowed us to hide some of how the objects were being created. This allowed also allowed us to get rid of the duplicate code (caused by the transaction subclasses) and 
+
+
+3. Dependency Injection 
+   1. In TransactionManager and all its subclasses, dependency injection was used in the constructor. This allows us to pass in a list of transactions created outside the class, avoiding hard dependencies. Additionally, this allows us to easily store information regarding the transactions through serialization outside of the TransactionManager classes, avoiding additional dependencies. 
+   2. In UserMenuController class we used many dependency injections in the constructor of that object. (the different managers in our program). Doing this made the UserMenuController class independent of how the managers are constructed.
